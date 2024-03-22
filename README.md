@@ -8,12 +8,10 @@ Go into the _configs_ directory and run:
 stow .
 ```
 
-## ZSH
+## Fishshell
 
-- Install [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
-- themes [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- Install [fishell](https://fishshell.com/))
 
-## NVIM (neovim)
 
 ## TMUX
 
@@ -21,7 +19,8 @@ A good [tmux config page](https://www.hostinger.com/tutorials/tmux-config#tmux_C
 
 ### TMUX plugin manager
 
-intstall tmux tpm: https://github.com/tmux-plugins/tpm
+- Intstall tmux tpm: https://github.com/tmux-plugins/tpm
+- [Awesome Tmux Overview](https://www.trackawesomelist.com/rothgar/awesome-tmux/readme/)
 
 ```
 git clone https://github.com/tmux-plugins/tpm ~/tools/tmux/tpm
