@@ -1,9 +1,12 @@
 # empty greeting message
 set -U fish_greeting
 
+fish_add_path -g ~/.cargo/bin
+
 alias vi='nvim'
 alias ll='exa -la'
 alias ls='exa'
+alias jl='just l'
 alias wl='cd /mnt/c/workspace/rust_projects/lookups/'
 
 # fish_key_reader

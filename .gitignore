@@ -1,2 +1,5 @@
 .config/htop/*
 .config/tmux/plugins/*
+.config/fish/conf.d/*
+.config/fish/fish_variables
+.config/lazygit/*
