@@ -3,9 +3,12 @@ set -U fish_greeting
 
 fish_add_path -g ~/.cargo/bin
 
+set -U fish_color_command yellow
+
 alias vi='nvim'
-alias ll='exa -la'
-alias ls='exa'
+alias ll='ls -la'
+# alias ll='exa -la'
+# alias ls='exa'
 alias jl='just l'
 alias wl='cd /mnt/c/workspace/rust_projects/lookups/'
 
@@ -43,8 +46,8 @@ bind \e\[1\;5D prevd-or-backward-word
 #      else
 #        set result '✔ '
 #      end
-# 
+#
 #      set duration (echo "$CMD_DURATION 1000" | awk '{printf "%.3fs", $1 / $2}')
-# 
+#
 #      printf '%s ms | %s' $duration (date +%H:%M)
 # end
