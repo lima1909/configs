@@ -4,6 +4,7 @@ set -U fish_greeting
 fish_add_path -g ~/.cargo/bin
 
 set -U fish_color_command yellow
+set -g fish_prompt_pwd_dir_length 7
 
 alias vi='nvim'
 alias ll='ls -la'
