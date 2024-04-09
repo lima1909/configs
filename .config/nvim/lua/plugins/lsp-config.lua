@@ -1,4 +1,11 @@
 return {
+  -- show status from startign LSP server
+  { 
+    "j-hui/fidget.nvim",
+    config = function ()
+    	require("fidget").setup({})
+    end
+  },
   {
     "williamboman/mason.nvim",
     config = function()
@@ -16,14 +23,19 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function(ev)
+
     	local lspconfig = require("lspconfig")
+	local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 --	local on_attach = function(client)
 --   		require'completion'.on_attach(client)
 --	end
 
-    	lspconfig.lua_ls.setup({})
+    	lspconfig.lua_ls.setup({
+		capabilities = capabilities,
+	})
     	lspconfig.rust_analyzer.setup({
+		capabilities = capabilities,
 --    		on_attach = on_attach,
 --    		on_attach = function(client, bufnr)
 --        		vim.lsp.inlay_hint.enable(bufnr)
