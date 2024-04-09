@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
 	require("mason-lspconfig").setup({
-    	ccensure_installed = { "lua_ls", "rust_analyzer" },
+    	ensure_installed = { "lua_ls", "rust_analyzer" },
 	})
     end
   },
@@ -18,13 +18,17 @@ return {
     config = function(ev)
     	local lspconfig = require("lspconfig")
 
-	local on_attach = function(client)
-    		require'completion'.on_attach(client)
-	end
+--	local on_attach = function(client)
+--   		require'completion'.on_attach(client)
+--	end
 
     	lspconfig.lua_ls.setup({})
     	lspconfig.rust_analyzer.setup({
-    		on_attach = on_attach,
+--    		on_attach = on_attach,
+--    		on_attach = function(client, bufnr)
+--        		vim.lsp.inlay_hint.enable(bufnr)
+--    		end,
+
     		settings = {
         		["rust-analyzer"] = {
             		imports = {
