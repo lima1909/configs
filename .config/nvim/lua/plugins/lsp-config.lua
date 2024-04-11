@@ -1,9 +1,16 @@
 return {
-  -- show status from startign LSP server
-  { 
+  {
+    -- show status from startign LSP server
     "j-hui/fidget.nvim",
     config = function ()
     	require("fidget").setup({})
+    end
+  },
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function ()
+    	vim.g.rustfmt_autosave = 1
     end
   },
   {
@@ -25,22 +32,21 @@ return {
     config = function(ev)
 
     	local lspconfig = require("lspconfig")
+    	local util = require("lspconfig/util")
 	local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
---	local on_attach = function(client)
---   		require'completion'.on_attach(client)
---	end
 
     	lspconfig.lua_ls.setup({
 		capabilities = capabilities,
 	})
+
     	lspconfig.rust_analyzer.setup({
 		capabilities = capabilities,
---    		on_attach = on_attach,
---    		on_attach = function(client, bufnr)
---        		vim.lsp.inlay_hint.enable(bufnr)
---    		end,
+                on_attach = function(client, bufnr)
+                   vim.lsp.inlay_hint.enable(bufnr)
+                end,
 
+		filetypes = {"rust"},
+		root_dir = util.root_pattern("Cargo.toml"),
     		settings = {
         		["rust-analyzer"] = {
             		imports = {
@@ -50,6 +56,7 @@ return {
                 		prefix = "self",
             		},
             		cargo = {
+				allFeatures = true,
                 		buildScripts = {
                     			enable = true,
                 		},
