@@ -8,10 +8,16 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
+-- Don't show the mode, since it's already in the status line
+vim.opt.showmode = false
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- Set highlight on search, but clear on pressing <Esc> in normal mode
+vim.opt.hlsearch = true
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- :map <leader>s -> printed the description 'desc'
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'simulate the Esc key'})
