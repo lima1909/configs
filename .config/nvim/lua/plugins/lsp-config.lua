@@ -72,9 +72,9 @@ return {
 				}
 			})
 
-			local opts = { buffer = ev.buf }
-			vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-			vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+			vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = '[K] show help (hover)', buffer = ev.buf })
+			vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action,
+				{ desc = '[C]ode [A]ction', buffer = ev.buf })
 		end
 	}
 }
