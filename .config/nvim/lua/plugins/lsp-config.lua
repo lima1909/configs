@@ -72,9 +72,25 @@ return {
 				}
 			})
 
-			vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = '[K] show help (hover)', buffer = ev.buf })
-			vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action,
+			vim.keymap.set('n', 'ch', vim.lsp.buf.hover,
+				{ desc = '[C]ode show [H]elp (hover)', buffer = ev.buf })
+			vim.keymap.set('n', 'ca', vim.lsp.buf.code_action,
 				{ desc = '[C]ode [A]ction', buffer = ev.buf })
+			-- Find references for the word under your cursor.
+			vim.keymap.set('n', 'cr', require('telescope.builtin').lsp_references,
+				{ desc = '[C]ode [R]eferences', buffer = ev.buf })
+			-- Jump to the implementation of the word under your cursor.
+			--  Useful when your language has ways of declaring types without an actual implementation.
+			vim.keymap.set('n', 'ci', require('telescope.builtin').lsp_implementations,
+				{ desc = '[C]ode [I]mplementation', buffer = ev.buf })
+			-- Jump to the type of the word under your cursor.
+			--  Useful when you're not sure what type a variable is and you want to see
+			--  the definition of its *type*, not where it was *defined*.
+			vim.keymap.set('n', 'cd', require('telescope.builtin').lsp_type_definitions,
+				{ desc = '[C]ode [D]efinition', buffer = ev.buf })
+			-- Rename the variable under your cursor.
+			--  Most Language Servers support renaming across files, etc.
+			vim.keymap.set('n', 'cr', vim.lsp.buf.rename, { desc = '[C]ode [R]ename', buffer = ev.buf })
 		end
 	}
 }
