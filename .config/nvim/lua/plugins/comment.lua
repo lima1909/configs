@@ -1,15 +1,25 @@
 return {
-	'numToStr/Comment.nvim',
-	opts = {
-		toggler = {
-			---Line-comment toggle keymap
-			line = 'gcc',
-			---Block-comment toggle keymap
-			block = 'gbc',
-		},
+	{
+		'lukas-reineke/indent-blankline.nvim',
+		main = "ibl",
+		config = function()
+			require("ibl").setup({
+
+			})
+		end
 	},
-	lazy = false,
-	config = function()
-		require('Comment').setup(opts)
-	end
+	{
+		'numToStr/Comment.nvim',
+		lazy = false,
+		config = function()
+			require('Comment').setup({
+				toggler = {
+					---Line-comment toggle keymap
+					line = 'gcc',
+					---Block-comment toggle keymap
+					block = 'gbc',
+				},
+			})
+		end
+	}
 }
