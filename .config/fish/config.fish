@@ -13,6 +13,8 @@ alias ll='ls -la'
 alias jl='just l'
 alias wl='cd /mnt/c/workspace/rust_projects/lookups/'
 
+fzf --fish | source
+
 # fish_key_reader
 # navigate back and forward in directories: nextd and prevd
 bind \e\[1\;5C nextd-or-forward-word
