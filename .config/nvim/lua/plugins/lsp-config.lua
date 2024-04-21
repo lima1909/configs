@@ -33,6 +33,7 @@ return {
                     "golangci-lint",
                     "misspell",
                     "codelldb",
+                    "delve",
                 },
             })
         end,
@@ -52,8 +53,6 @@ return {
                 capabilities = capabilities,
             })
 
-            -- vim.keymap.set("n", "ch", vim.lsp.buf.hover, { desc = "[C]ode show [H]elp (hover)", buffer = ev.buf })
-            -- vim.keymap.set("n", "ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction", buffer = ev.buf })
             -- Find references for the word under your cursor.
             vim.keymap.set(
                 "n",
