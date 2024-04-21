@@ -8,7 +8,7 @@ return {
         })
 
         vim.keymap.set("n", "mm", require("harpoon.mark").add_file, { desc = "[MM]ark harpoon" })
-        vim.keymap.set("n", "mn", require("harpoon.ui").toggle_quick_menu, { desc = "[MN]show menu harpoon" })
+        vim.keymap.set("n", "ml", require("harpoon.ui").toggle_quick_menu, { desc = "[ML]show menu harpoon" })
         vim.keymap.set("n", "m1", function()
             require("harpoon.ui").nav_file(1)
         end, { desc = "[M1]show file 1" })

@@ -23,6 +23,10 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("i", "jk", "<Esc>", { desc = "simulate the Esc key" })
 vim.keymap.set("n", "<Leader>s", ":write<CR>:source<CR>", { desc = "my first test keymap" })
 
+-- LSP keymaps
+vim.keymap.set("n", "ch", vim.lsp.buf.hover, { desc = "[C]ode show [H]elp (hover)" })
+vim.keymap.set("n", "ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
+
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`

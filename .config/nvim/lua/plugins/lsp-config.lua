@@ -7,13 +7,6 @@ return {
         end,
     },
     {
-        "rust-lang/rust.vim",
-        ft = "rust",
-        init = function()
-            vim.g.rustfmt_autosave = 1
-        end,
-    },
-    {
         "williamboman/mason.nvim",
         config = function()
             require("mason").setup()
@@ -29,7 +22,6 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "lua_ls",
-                    "rust_analyzer",
                     "gopls",
                 },
             })
@@ -40,8 +32,7 @@ return {
                     "stylua", -- lua formatter
                     "golangci-lint",
                     "misspell",
-                    --                    "rustfmt", deprecated
-                    "gitlint",
+                    "codelldb",
                 },
             })
         end,
@@ -50,7 +41,7 @@ return {
         "neovim/nvim-lspconfig",
         config = function(ev)
             local lspconfig = require("lspconfig")
-            local util = require("lspconfig/util")
+            -- local util = require("lspconfig/util")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             lspconfig.lua_ls.setup({
@@ -61,48 +52,8 @@ return {
                 capabilities = capabilities,
             })
 
-            lspconfig.rust_analyzer.setup({
-                capabilities = capabilities,
-                --                on_attach = function(client, bufnr)
-                --                    vim.lsp.inlay_hint.enable(bufnr)
-                --                end,
-
-                filetypes = { "rust" },
-                root_dir = util.root_pattern("Cargo.toml"),
-                settings = {
-                    ["rust-analyzer"] = {
-                        imports = {
-                            granularity = {
-                                group = "module",
-                            },
-                            prefix = "self",
-                        },
-                        cargo = {
-                            allFeatures = true,
-                            buildScripts = {
-                                enable = true,
-                            },
-                        },
-                        -- Add clippy lints for Rust.
-                        checkOnSave = {
-                            allFeatures = true,
-                            command = "clippy",
-                            extraArgs = { "--no-deps" },
-                        },
-                        procMacro = {
-                            enable = true,
-                            ignored = {
-                                ["async-trait"] = { "async_trait" },
-                                ["napi-derive"] = { "napi" },
-                                ["async-recursion"] = { "async_recursion" },
-                            },
-                        },
-                    },
-                },
-            })
-
-            vim.keymap.set("n", "ch", vim.lsp.buf.hover, { desc = "[C]ode show [H]elp (hover)", buffer = ev.buf })
-            vim.keymap.set("n", "ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction", buffer = ev.buf })
+            -- vim.keymap.set("n", "ch", vim.lsp.buf.hover, { desc = "[C]ode show [H]elp (hover)", buffer = ev.buf })
+            -- vim.keymap.set("n", "ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction", buffer = ev.buf })
             -- Find references for the word under your cursor.
             vim.keymap.set(
                 "n",
