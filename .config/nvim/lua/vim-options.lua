@@ -15,6 +15,20 @@ vim.opt.showmode = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- spell checker,
+-- "z=" for suggestions
+-- "zg" add an unknown word
+vim.opt.spelllang = "en_us"
+vim.opt.spell = true
+
+-- enable listchars, like tab, enter, ...
+vim.opt.list = true
+vim.opt.listchars = {
+    trail = "-",
+    eol = "↲",
+    tab = "» ",
+}
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -22,6 +36,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- :map <leader>s -> printed the description 'desc'
 vim.keymap.set("i", "jk", "<Esc>", { desc = "simulate the Esc key" })
 vim.keymap.set("n", "<Leader>s", ":write<CR>:source<CR>", { desc = "my first test keymap" })
+vim.keymap.set("i", "77", "{ }<Esc>hi", { desc = "insert { }" })
 
 -- LSP keymaps
 vim.keymap.set("n", "ch", vim.lsp.buf.hover, { desc = "[C]ode show [H]elp (hover)" })
