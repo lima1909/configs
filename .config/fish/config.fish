@@ -12,6 +12,7 @@ alias ll='ls -la'
 # alias ls='exa'
 alias jl='just l'
 alias wl='cd /mnt/c/workspace/rust_projects/lookups/'
+alias lg='lazygit'
 
 fzf --fish | source
 
