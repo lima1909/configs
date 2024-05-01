@@ -9,7 +9,7 @@ require("dap-go").setup({
             type = "go",
             name = "Attach remote",
             mode = "remote",
-            request = "attach",
+            request = "lunch", -- "attach",
         },
     },
     -- delve configurations
