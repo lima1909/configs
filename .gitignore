@@ -6,3 +6,4 @@
 .config/go/
 
 lazy-lock.json
+.config/dlv/config.yml
