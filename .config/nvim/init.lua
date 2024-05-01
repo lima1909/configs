@@ -42,8 +42,8 @@ vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 
 -- enable listchars, like tab, enter, ...
-vim.opt.list = true
-vim.opt.listchars = { trail = "-", eol = "↲", tab = "» ", nbsp = "␣" }
+-- vim.opt.list = true
+-- vim.opt.listchars = { trail = "-", eol = "↲", tab = "» ", nbsp = "␣" }
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 7
@@ -53,7 +53,12 @@ vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- :map <leader>s -> printed the description 'desc'
-vim.keymap.set("n", "<C-s>", ":write<CR>:source %<CR>", { desc = "<leader>s write and reload source" })
+vim.keymap.set(
+    { "n", "v", "i" },
+    "<C-s>",
+    "<Esc>:write<CR>:source %<CR>",
+    { desc = "<leader>s write and reload source" }
+)
 
 vim.keymap.set("i", "jk", "<Esc>", { desc = "[jk] simulate the Esc key" })
 vim.keymap.set("i", "77", "{}<Esc>hi", { desc = "[77] insert { }" })
