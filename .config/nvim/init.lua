@@ -53,14 +53,11 @@ vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- :map <leader>s -> printed the description 'desc'
-vim.keymap.set("i", "jk", "<Esc>", { desc = "[jk] simulate the Esc key" })
 vim.keymap.set("n", "<C-s>", ":write<CR>:source %<CR>", { desc = "<leader>s write and reload source" })
+
+vim.keymap.set("i", "jk", "<Esc>", { desc = "[jk] simulate the Esc key" })
 vim.keymap.set("i", "77", "{}<Esc>hi", { desc = "[77] insert { }" })
 vim.keymap.set("i", "88", "[]<Esc>hi", { desc = "[88] insert [ ]" })
-
--- LSP keymaps
-vim.keymap.set("n", "<leader>ch", vim.lsp.buf.hover, { desc = "[C]ode show [H]elp (hover)" })
--- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows

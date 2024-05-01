@@ -72,6 +72,7 @@ return {
                 -- WARN: This is not Goto Definition, this is Goto Declaration.
                 --  For example, in C this would take you to the header.
                 map("<leader>ce", vim.lsp.buf.declaration, "[C]ode d[E]claration")
+                map("<leader>ch", vim.lsp.buf.hover, { desc = "[C]ode show [H]elp (hover)" })
 
                 -- The following two autocommands are used to highlight references of the
                 -- word under your cursor when your cursor rests there for a little while.
