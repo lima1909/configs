@@ -1,3 +1,7 @@
+local full_file_path = function()
+    return vim.fn.expand("%")
+end
+
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -6,11 +10,9 @@ return {
             options = {
                 theme = "dracula",
             },
-            --	sections = {
-            --	  lualine_a = {
-            --		{ 'mode', fmt = function(str) return str:sub(1,1) end }
-            --	  },
-            --        }
+            sections = {
+                lualine_c = { full_file_path },
+            },
         })
     end,
 }

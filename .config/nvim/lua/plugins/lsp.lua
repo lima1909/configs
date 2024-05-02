@@ -47,7 +47,7 @@ return {
 
                 -- Fuzzy find all the symbols in your current document.
                 --  Symbols are things like variables, functions, types, etc.
-                map("<leader>cds", require("telescope.builtin").lsp_document_symbols, "[Code] [D]ocument [S]ymbols")
+                map("<leader>cs", require("telescope.builtin").lsp_document_symbols, "[Code] document [S]ymbols")
 
                 -- Fuzzy find all the symbols in your current workspace.
                 --  Similar to document symbols, except searches over your entire project.
@@ -72,7 +72,7 @@ return {
                 -- WARN: This is not Goto Definition, this is Goto Declaration.
                 --  For example, in C this would take you to the header.
                 map("<leader>ce", vim.lsp.buf.declaration, "[C]ode d[E]claration")
-                map("<leader>ch", vim.lsp.buf.hover, { desc = "[C]ode show [H]elp (hover)" })
+                map("<leader>ch", vim.lsp.buf.hover, "[C]ode show [H]elp (hover)")
 
                 -- The following two autocommands are used to highlight references of the
                 -- word under your cursor when your cursor rests there for a little while.
