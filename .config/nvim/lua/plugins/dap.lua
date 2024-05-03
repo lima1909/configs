@@ -76,6 +76,6 @@ return {
             "DapLogPoint",
             { text = "", texthl = "DapLogPoint", linehl = "DapLogPoint", numhl = "DapLogPoint" }
         )
-        vim.fn.sign_define("DapStopped", { text = "", texthl = "", linehl = "", numhl = "" })
+        -- vim.fn.sign_define("DapStopped", { text = "", texthl = "", linehl = "", numhl = "" })
     end,
 }

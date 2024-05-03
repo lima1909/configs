@@ -52,7 +52,8 @@ return {
                 ["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
                 ["<leader>d"] = { name = "[D]ebug", _ = "which_key_ignore" },
                 ["<leader>r"] = { name = "[R]un", _ = "which_key_ignore" },
-                ["<leader>t"] = { name = "neo [T]ree", _ = "which_key_ignore" },
+                ["<leader>t"] = { name = "[T]ree", _ = "which_key_ignore" },
+                ["<leader>g"] = { name = "[G]it", _ = "which_key_ignore" },
                 -- ["<leader>h"] = { name = "Git [H]unk", _ = "which_key_ignore" },
             }, { mode = "n" })
             -- visual mode
