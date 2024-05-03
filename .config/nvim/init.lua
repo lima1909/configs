@@ -61,8 +61,8 @@ vim.keymap.set(
 )
 
 vim.keymap.set("i", "jk", "<Esc>", { desc = "[jk] simulate the Esc key" })
-vim.keymap.set("i", "77", "{}<Esc>hi", { desc = "[77] insert { }" })
-vim.keymap.set("i", "88", "[]<Esc>hi", { desc = "[88] insert [ ]" })
+vim.keymap.set("i", "77", "{}<Esc>i", { desc = "[77] insert { }" })
+vim.keymap.set("i", "88", "[]<Esc>i", { desc = "[88] insert [ ]" })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows

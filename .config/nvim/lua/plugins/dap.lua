@@ -28,12 +28,21 @@ return {
         })
 
         dap.listeners.before.attach.dapui_config = function()
+            vim.keymap.set("n", "o", dap.step_over)
+            vim.keymap.set("n", "i", dap.step_into)
+
             dapui.open()
         end
         dap.listeners.before.launch.dapui_config = function()
+            vim.keymap.set("n", "o", dap.step_over)
+            vim.keymap.set("n", "i", dap.step_into)
+
             dapui.open()
         end
         dap.listeners.before.event_terminated.dapui_config = function()
+            vim.keymap.del("n", "o")
+            vim.keymap.del("n", "i")
+
             dapui.close()
         end
         dap.listeners.before.event_exited.dapui_config = function()
