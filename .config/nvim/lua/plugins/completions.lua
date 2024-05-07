@@ -3,7 +3,7 @@ return {
     { "hrsh7th/cmp-path" },
     { "hrsh7th/cmp-cmdline" },
     { "hrsh7th/cmp-nvim-lsp" },
-    { "tjdevries/complextras.nvim" },
+    -- { "tjdevries/complextras.nvim" },
     {
         "L3MON4D3/LuaSnip",
         dependencies = {
@@ -16,7 +16,7 @@ return {
         config = function()
             vim.opt.completeopt = { "menu", "menuone", "noselect" }
             -- Don't show the dumb matching stuff.
-            vim.opt.shortmess:append("c")
+            -- vim.opt.shortmess:append("c")
 
             local cmp = require("cmp")
             require("luasnip.loaders.from_vscode").lazy_load()
