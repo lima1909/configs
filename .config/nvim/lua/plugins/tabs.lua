@@ -7,7 +7,12 @@ return {
 
     init = function()
         vim.g.barbar_auto_setup = false
-        vim.keymap.set("n", "<tab>", "<cmd>BufferPrevious<CR>", { desc = "[C]ode [I]mplementation", silent = true })
+        vim.keymap.set(
+            { "n", "v" },
+            "<tab>",
+            "<cmd>BufferPrevious<CR>",
+            { desc = "[C]ode [I]mplementation", silent = true }
+        )
     end,
     opts = {
         -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
