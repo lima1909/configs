@@ -1,6 +1,8 @@
 # empty greeting message
 set -U fish_greeting
 
+fzf --fish | source
+
 fish_add_path -g ~/.cargo/bin
 
 set -U fish_color_command yellow
@@ -13,8 +15,9 @@ alias ll='ls -la'
 alias jl='just l'
 alias wl='cd /mnt/c/workspace/rust_projects/lookups/'
 alias lg='lazygit'
+alias wr='cd /mnt/c/workspace/resty.nvim'
+alias vr='nvim --cmd "set rtp+=." $(fzf)'
 
-fzf --fish | source
 
 # fish_key_reader
 # navigate back and forward in directories: nextd and prevd
