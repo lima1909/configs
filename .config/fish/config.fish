@@ -6,7 +6,7 @@ fzf --fish | source
 fish_add_path -g ~/.cargo/bin
 
 set -U fish_color_command yellow
-set -g fish_prompt_pwd_dir_length 7
+set -g fish_prompt_pwd_dir_length 10
 
 alias vi='nvim'
 alias ll='ls -la'

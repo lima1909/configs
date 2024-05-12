@@ -1,4 +1,10 @@
 return {
+    -- load my resty plugin from file system
+    {
+        name = "resty-local",
+        dir = "/mnt/c/workspace/resty.nvim",
+    },
+
     -- Detect tabstop and shiftwidth automatically
     { "tpope/vim-sleuth" },
 

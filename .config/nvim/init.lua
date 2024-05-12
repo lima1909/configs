@@ -90,9 +90,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
-vim.api.nvim_create_user_command("MyRun", function()
-    print("Run Command")
-end, { nargs = "*" })
+vim.keymap.set("n", "<leader>rr", ":Resty run<CR>", { desc = "[R]esty [R]un" })
+vim.keymap.set("n", "<leader>rl", ":Resty last<CR>", { desc = "[R]esty [L]ast" })
+vim.keymap.set("n", "<leader>rv", ":Resty view<CR>", { desc = "[R]esty [V]iew" })
+
+vim.api.nvim_create_user_command("MyRun", function(args)
+    print("Run Command " .. table.concat(args.fargs, ", "))
+end, {
+    nargs = "*",
+    complete = function(opt)
+        -- print(" -- " .. opt.input)
+        return { "foo", "bar" }
+    end,
+})
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
