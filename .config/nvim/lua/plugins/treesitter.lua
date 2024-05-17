@@ -16,6 +16,7 @@ return {
                 "markdown",
                 "vim",
                 "vimdoc",
+                "json",
             },
             auto_install = true,
             indent = { enable = true },

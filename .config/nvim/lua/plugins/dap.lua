@@ -65,6 +65,9 @@ return {
         vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "[D]ebug step [Into]" })
         vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "[D]ebug step [O]ver" })
         vim.keymap.set("n", "<leader>du", dap.step_out, { desc = "[D]ebug step O[u]t" })
+        vim.keymap.set("n", "<leader>d?", function()
+            require("dapui").eval()
+        end, { desc = "[D]ebug  [?] eval" })
 
         vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
             require("dap.ui.widgets").hover()
