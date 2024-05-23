@@ -64,6 +64,25 @@ vim.keymap.set("i", "jk", "<Esc>", { desc = "[jk] simulate the Esc key" })
 vim.keymap.set("i", "77", "{}<Esc>i", { desc = "[77] insert { }" })
 vim.keymap.set("i", "88", "[]<Esc>i", { desc = "[88] insert [ ]" })
 
+-- lua snipped
+vim.keymap.set({ "i" }, "<C-K>", function()
+    require("luasnip").expand()
+end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-L>", function()
+    require("luasnip").jump(1)
+end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-J>", function()
+    require("luasnip").jump(-1)
+end, { silent = true })
+
+-- move up and down
+vim.keymap.set({ "i", "n" }, "<C-Up>", function()
+    vim.cmd(":m -2")
+end, { silent = true })
+vim.keymap.set({ "i", "n" }, "<C-Down>", function()
+    vim.cmd(":m +1")
+end, { silent = true })
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
