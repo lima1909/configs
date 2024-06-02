@@ -65,14 +65,20 @@ vim.keymap.set("i", "77", "{}<Esc>i", { desc = "[77] insert { }" })
 vim.keymap.set("i", "88", "[]<Esc>i", { desc = "[88] insert [ ]" })
 
 -- lua snipped
-vim.keymap.set({ "i" }, "<C-K>", function()
-    require("luasnip").expand()
-end, { silent = true })
 vim.keymap.set({ "i", "s" }, "<C-L>", function()
     require("luasnip").jump(1)
+
+    if require("luasnip").choice_active() then
+        require("luasnip").change_choice(1)
+    end
 end, { silent = true })
+
 vim.keymap.set({ "i", "s" }, "<C-J>", function()
     require("luasnip").jump(-1)
+
+    if require("luasnip").choice_active() then
+        require("luasnip").change_choice(1)
+    end
 end, { silent = true })
 
 -- move up and down
@@ -111,7 +117,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.keymap.set("n", "<leader>rr", ":Resty run<CR>", { desc = "[R]esty [R]un" })
 vim.keymap.set("n", "<leader>rl", ":Resty last<CR>", { desc = "[R]esty [L]ast" })
-vim.keymap.set("n", "<leader>rv", ":Resty view<CR>", { desc = "[R]esty [V]iew" })
+vim.keymap.set("n", "<leader>rd", ":Resty diagnostic<CR>", { desc = "[R]esty [D]iagnostic" })
 
 vim.api.nvim_create_user_command("MyRun", function(args)
     print("Run Command " .. table.concat(args.fargs, ", "))
