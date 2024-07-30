@@ -2,6 +2,6 @@ vim.keymap.set("n", "<leader>rf", ":PlenaryBustedFile %<CR>", { desc = "[R]un pl
 vim.keymap.set(
     "n",
     "<leader>rd",
-    ":PlenaryBustedDirectory tests<CR>",
+    ":PlenaryBustedDirectory spec<CR>",
     { desc = "[R]un plenary [D]irectory tests: ./tests" }
 )
