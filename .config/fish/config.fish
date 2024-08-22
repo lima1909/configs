@@ -17,6 +17,7 @@ alias wl='cd /mnt/c/workspace/rust_projects/lookups/'
 alias lg='lazygit'
 alias wr='cd /mnt/c/workspace/resty.nvim'
 alias vr='nvim --cmd "set rtp+=." $(fzf)'
+alias gb='git branch  | fzf --bind "enter:become(git switch {1})"'
 
 
 # fish_key_reader
