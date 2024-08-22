@@ -115,9 +115,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
-vim.keymap.set("n", "<leader>rr", ":Resty run<CR>", { desc = "[R]esty [R]un" })
-vim.keymap.set("n", "<leader>rl", ":Resty last<CR>", { desc = "[R]esty [L]ast" })
-vim.keymap.set("n", "<leader>rd", ":Resty diagnostic<CR>", { desc = "[R]esty [D]iagnostic" })
+vim.keymap.set({ "n", "v" }, "<leader>rr", ":Resty run<CR>", { desc = "[R]esty [R]un request under the cursor" })
+vim.keymap.set({ "n", "v" }, "<leader>rl", ":Resty last<CR>", { desc = "[R]esty [L]ast" })
+vim.keymap.set({ "n", "v" }, "<leader>rv", ":Resty favorite<CR>", { desc = "[R]esty [V]iew favorites" })
 
 vim.api.nvim_create_user_command("MyRun", function(args)
     print("Run Command " .. table.concat(args.fargs, ", "))
