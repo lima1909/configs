@@ -19,6 +19,11 @@ alias wr='cd /mnt/c/workspace/resty.nvim'
 alias vr='nvim --cmd "set rtp+=." $(fzf)'
 alias gb='git branch  | fzf --bind "enter:become(git switch {1})"'
 
+function runtests -d "run resty nvim tests"
+        wr
+        nvim --headless --noplugin -u spec/minimal_init.lua -c "PlenaryBustedDirectory spec/ {minimal_init = 'spec/minimal_init.lua'}"
+        cd -
+end
 
 # fish_key_reader
 # navigate back and forward in directories: nextd and prevd
