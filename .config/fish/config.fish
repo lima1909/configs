@@ -18,6 +18,7 @@ alias lg='lazygit'
 alias wr='cd /mnt/c/workspace/resty.nvim'
 alias vr='nvim --cmd "set rtp+=." $(fzf)'
 alias gb='git branch  | fzf --bind "enter:become(git switch {1})"'
+alias k='~/configs/scripts/kill-list'
 
 function runtests -d "run resty nvim tests"
         wr
