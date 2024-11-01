@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# List all branches (local and remote), filter and select one with fzf
+# BRANCH=$(git branch -a --sort=-committerdate | sed 's/^[* ] //' | fzf --header="Select a branch to switch to")
+# only local branchen
+BRANCH=$(git branch --sort=-committerdate | sed 's/^[* ] //' | fzf --header="Select a branch to switch to")
+
+if [ -n "$BRANCH" ]; then
+    # Remove remote prefix if needed (origin/branch -> branch)
+    BRANCH=${BRANCH#remotes/origin/}
+    
+    # Switch to the selected branch
+    git switch "$BRANCH" && echo "Switched to branch $BRANCH."
+fi

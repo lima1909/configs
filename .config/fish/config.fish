@@ -4,6 +4,7 @@ set -U fish_greeting
 fzf --fish | source
 
 fish_add_path -g ~/.cargo/bin
+fish_add_path -g ~/configs/scripts
 
 set -U fish_color_command yellow
 set -g fish_prompt_pwd_dir_length 10
