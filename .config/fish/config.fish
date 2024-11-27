@@ -5,6 +5,7 @@ fzf --fish | source
 
 fish_add_path -g ~/.cargo/bin
 fish_add_path -g ~/configs/scripts
+fish_add_path -g ~/tools
 
 set -U fish_color_command yellow
 set -g fish_prompt_pwd_dir_length 10
@@ -20,11 +21,22 @@ alias wr='cd /mnt/c/workspace/resty.nvim'
 alias vr='nvim --cmd "set rtp+=." $(fzf)'
 alias gb='git branch  | fzf --bind "enter:become(git switch {1})"'
 alias k='~/configs/scripts/kill-list'
+alias s='~/configs/scripts/switch_branch'
 
 function runtests -d "run resty nvim tests"
         wr
-        nvim --headless --noplugin -u spec/minimal_init.lua -c "PlenaryBustedDirectory spec/ {minimal_init = 'spec/minimal_init.lua'}"
-        cd -
+        nvim --headless --noplugin -u spec/minimal_init.lua -c "PlenaryBustedDirectory spec/ {sequential = true, minimal_init = 'spec/minimal_init.lua'}"
+
+        if test $status -eq 0
+                set result '✔ '
+        else
+                set result (set_color red) $status 'х' (set_color normal)
+        end
+
+        echo '=> result: ' $result
+        echo ' '
+
+        # cd -
 end
 
 # fish_key_reader
