@@ -52,6 +52,12 @@ vim.opt.scrolloff = 7
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+-- run a golang main.go
+vim.keymap.set("n", "<leader>gr", ":! go run *.go<CR>")
+
+-- change to terminal mod
+vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "go into terminal mode" })
+
 -- :map <leader>s -> printed the description 'desc'
 vim.keymap.set(
     { "n", "v", "i" },
@@ -118,6 +124,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.keymap.set({ "n", "v" }, "<leader>rr", ":Resty run<CR>", { desc = "[R]esty [R]un request under the cursor" })
 vim.keymap.set({ "n", "v" }, "<leader>rl", ":Resty last<CR>", { desc = "[R]esty [L]ast" })
 vim.keymap.set({ "n", "v" }, "<leader>rv", ":Resty favorite<CR>", { desc = "[R]esty [V]iew favorites" })
+vim.keymap.set({ "n", "v" }, "<leader>rz", ":Resty debug<CR>", { desc = "[R]esty debug [Z]" })
 
 vim.api.nvim_create_user_command("MyRun", function(args)
     print("Run Command " .. table.concat(args.fargs, ", "))

@@ -74,6 +74,9 @@ return {
                 map("<leader>ce", vim.lsp.buf.declaration, "[C]ode d[E]claration")
                 map("<leader>ch", vim.lsp.buf.hover, "[C]ode show [H]elp (hover)")
 
+                -- better view for diagnostics
+                map("<leader>cz", vim.diagnostic.open_float, "[C]ode show [Z] diagnostics")
+
                 -- The following two autocommands are used to highlight references of the
                 -- word under your cursor when your cursor rests there for a little while.
                 --    See `:help CursorHold` for information about when this is executed
