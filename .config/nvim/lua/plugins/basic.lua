@@ -24,6 +24,15 @@ return {
         end,
     },
 
+    -- load my resty plugin from file system
+    {
+        name = "only-local",
+        dir = "/mnt/c/workspace/only.nvim",
+        config = function()
+            -- require("only").setup({ output = { body_pretty_print = true } })
+        end,
+    },
+
     -- Detect tabstop and shiftwidth automatically
     { "tpope/vim-sleuth" },
 

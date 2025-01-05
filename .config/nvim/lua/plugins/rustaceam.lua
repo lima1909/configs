@@ -48,8 +48,8 @@ return {
         }
 
         -- Run tests
-        vim.keymap.set({ "n", "v" }, "<leader>rc", ":w | RustLsp run<CR>", { desc = "[R]un [C]urrent test" })
-        vim.keymap.set({ "n", "v" }, "<leader>rt", ":w | RustLsp! testables<CR>", { desc = "[R]un:  all [T]ests" })
+        -- vim.keymap.set({ "n", "v" }, "<leader>rc", ":w | RustLsp run<CR>", { desc = "[R]un [C]urrent test" })
+        -- vim.keymap.set({ "n", "v" }, "<leader>rt", ":w | RustLsp! testables<CR>", { desc = "[R]un:  all [T]ests" })
 
         -- add semicolon on the encoding
         -- vim.keymap.set({ "i", "n" }, ";", "<Esc>A;", { desc = "insert a semiconlon at the end of the line" })

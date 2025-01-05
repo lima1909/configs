@@ -136,6 +136,32 @@ end, {
     end,
 })
 
+-- run tests only, if it is a _spec.lua file
+vim.api.nvim_create_augroup("restyTestRunner", { clear = true })
+vim.api.nvim_create_autocmd("BufRead", {
+    group = "restyTestRunner",
+    pattern = "*_spec.lua",
+    callback = function()
+        vim.keymap.set("n", "<leader>rf", ":PlenaryBustedFile %<CR><Esc>", { desc = "[R]un plenary [F]ile tests" })
+        vim.keymap.set(
+            "n",
+            "<leader>rd",
+            ":PlenaryBustedDirectory spec<CR>",
+            { desc = "[R]un plenary [D]irectory tests: ./tests" }
+        )
+
+        -- run only file tests for: tags
+        vim.keymap.set(
+            { "n" },
+            "<leader>rt",
+            ":OnlyBustedFile tags #only<CR>",
+            { desc = "[R]un only test for [T]ag #only" }
+        )
+        -- run only file tests for: at_cursor
+        vim.keymap.set({ "n" }, "<leader>rc", ":OnlyBustedFile at_cursor<CR>", { desc = "[R]un only test at [C]ursor" })
+    end,
+})
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     vim.fn.system({
