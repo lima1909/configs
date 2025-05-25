@@ -28,6 +28,16 @@ return {
                     vim.keymap.set("n", keys, func, { buffer = event.buf, desc = desc })
                 end
 
+                map("<leader>cl", function()
+                    if vim.g.inlay_hint == false then
+                        vim.lsp.inlay_hint.enable(false)
+                        vim.g.inlay_hint = true
+                    else
+                        vim.lsp.inlay_hint.enable()
+                        vim.g.inlay_hint = false
+                    end
+                end, "[C]ode In[L]ay")
+
                 -- Jump to the definition of the word under your cursor.
                 --  This is where a variable was first declared, or where a function is defined, etc.
                 --  To jump back, press <C-t>.
@@ -136,6 +146,11 @@ return {
         --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
         local servers = {
             gopls = {},
+            -- zig
+            zls = {
+                include_compiler_info = true,
+                check_on_save = false,
+            },
             -- pyright = {},
             -- rust_analyzer = {},
             lua_ls = {

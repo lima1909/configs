@@ -11,7 +11,11 @@ return {
                 theme = "dracula",
             },
             sections = {
-                lualine_c = { full_file_path },
+                -- lualine_c = { full_file_path },
+                -- path = 0 → Only the filename (default)
+                -- path = 1 → Relative path from the working directory.
+                -- path = 2 → Absolute path.
+                lualine_c = { { "filename", path = 1, symbols = { modified = "[+]", readonly = "[RO]" } } },
             },
         })
     end,

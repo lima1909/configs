@@ -20,7 +20,11 @@ return {
         name = "resty-local",
         dir = "/mnt/c/workspace/resty.nvim",
         config = function()
-            require("resty").setup({ output = { body_pretty_print = true } })
+            require("resty").setup({
+                output = { body_pretty_print = true },
+                -- Split direction: "left", "right", "above", "below".
+                -- response = { output_window_split = "left" },
+            })
         end,
     },
 
